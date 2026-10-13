@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blanket - Play & Collect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- MAIN APP CONTAINER -->
+    <div id="app" class="main-theme">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="logo" onclick="switchTab('home')"> blanket </div>
+            <div class="nav-links">
+                <button onclick="switchTab('home')" class="nav-btn active">Home</button>
+                <button onclick="switchTab('market')" class="nav-btn">Market</button>
+                <button onclick="switchTab('inventory')" class="nav-btn">My Blankies</button>
+                <button onclick="switchTab('games')" class="nav-btn">Games</button>
+                <button onclick="switchTab('admin-login')" class="nav-btn admin-link">🔒 Admin</button>
+            </div>
+            <div class="user-stats">
+                <span class="coin-display">🪙 <strong id="coin-count">500</strong></span>
+            </div>
+        </nav>
+
+        <!-- TAB: HOME -->
+        <section id="tab-home" class="tab-content active">
+            <div class="hero">
+                <h1>Welcome to Blanket!</h1>
+                <p>Collect adorable Blankies, open epic packs, and play awesome trivia game modes!</p>
+                <button class="primary-btn" onclick="switchTab('games')">Play Now</button>
+            </div>
+        </section>
+
+        <!-- TAB: MARKET (PACKS) -->
+        <section id="tab-market" class="tab-content">
+            <h2>The Market</h2>
+            <p>Open packs to collect rare Blankies!</p>
+            <div class="packs-grid">
+                <div class="pack-card starter">
+                    <h3>Starter Pack</h3>
+                    <p>Cost: 100 🪙</p>
+                    <button class="primary-btn" onclick="openPack('Starter', 100)">Open Pack</button>
+                </div>
+                <div class="pack-card ocean">
+                    <h3>Ocean Pack</h3>
+                    <p>Cost: 250 🪙</p>
+                    <button class="primary-btn" onclick="openPack('Ocean', 250)">Open Pack</button>
+                </div>
+                <div class="pack-card galaxy">
+                    <h3>Galaxy Pack</h3>
+                    <p>Cost: 500 🪙</p>
+                    <button class="primary-btn" onclick="openPack('Galaxy', 500)">Open Pack</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: MY BLANKIES (INVENTORY) -->
+        <section id="tab-inventory" class="tab-content">
+            <h2>My Collection</h2>
+            <div id="inventory-grid" class="blook-grid">
+                <!-- Dynamically populated -->
+            </div>
+        </section>
+
+        <!-- TAB: GAMES -->
+        <section id="tab-games" class="tab-content">
+            <h2>Select a Game Mode</h2>
+            <div class="games-grid">
+                <div class="game-card" onclick="startTriviaGame('Classic')">
+                    <h3>Classic Trivia</h3>
+                    <p>Answer questions fast to win!</p>
+                </div>
+                <div class="game-card" onclick="startTriviaGame('Gold Quest')">
+                    <h3>Gold Quest</h3>
+                    <p>Steal gold from your friends!</p>
+                </div>
+                <div class="game-card" onclick="startTriviaGame('Tower Defense')">
+                    <h3>Tower Defense</h3>
+                    <p>Defend your base with trivia power!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRIVIA GAMEPLAY SCREEN -->
+        <section id="tab-play" class="tab-content">
+            <div class="game-container">
+                <h3 id="game-mode-title">Game Mode</h3>
+                <div class="question-box">
+                    <h2 id="question-text">Loading question...</h2>
+                </div>
+                <div class="answers-grid" id="answers-container">
+                    <!-- Dynamic answers -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: ADMIN LOGIN / PANEL -->
+        <section id="tab-admin-login" class="tab-content">
+            <div class="admin-login-box">
+                <h2>Admin Portal</h2>
+                <p>Enter the secret passcode to access admin controls.</p>
+                <input type="password" id="admin-pass-input" placeholder="Passcode...">
+                <button class="primary-btn" onclick="verifyAdmin()">Unlock</button>
+            </div>
+        </section>
+
+        <section id="tab-admin-panel" class="tab-content admin-theme">
+            <h2>🛡️ Secret Admin Panel</h2>
+            <p>Welcome, master developer. Use your powers wisely.</p>
+            
+            <div class="admin-controls">
+                <div class="control-group">
+                    <h3>Economy</h3>
+                    <button class="admin-btn" onclick="adminAddCoins()">Add +10,000 Coins 🪙</button>
+                </div>
+                <div class="control-group">
+                    <h3>Collection</h3>
+                    <button class="admin-btn" onclick="adminUnlockAll()">Get Every Blankie ✨</button>
+                </div>
+                <div class="control-group">
+                    <h3>Game Cheats</h3>
+                    <label><input type="checkbox" id="cheat-auto-answer"> Auto Answer Correctly</label>
+                    <label><input type="checkbox" id="cheat-highlight" checked> Highlight Correct Answers</label>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PACK OPENING MODAL -->
+    <div id="pack-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>🎉 You Unboxed:</h2>
+            <div id="unboxed-result" class="blook-card-display"></div>
+            <button class="primary-btn" onclick="closeModal()">Awesome!</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
