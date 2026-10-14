@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blanket — Quiz & Collect</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" data-page="home"><span class="brand-mark">B</span><span>blanket<span class="brand-dot">.</span><small>play • collect • chill</small></span></a>
+      <div class="profile-mini"><div class="avatar">🧸</div><div><strong>Cozy Player</strong><small>Level <span id="levelSmall">1</span> explorer</small></div><span class="online-dot"></span></div>
+      <div class="nav-label">MENU</div>
+      <nav>
+        <button class="nav-link active" data-page="home"><span>⌂</span> Home</button>
+        <button class="nav-link" data-page="discover"><span>◈</span> Discover</button>
+        <button class="nav-link" data-page="modes"><span>▦</span> Game modes</button>
+        <button class="nav-link" data-page="market"><span>✦</span> Market <em>NEW</em></button>
+        <button class="nav-link" data-page="collection"><span>▣</span> My Blankies</button>
+        <button class="nav-link" data-page="stats"><span>▥</span> Stats</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="mini-banner"><div class="spark">✦</div><strong>Stay cozy!</strong><p>Play quizzes and collect your favorite Blankies.</p><button data-page="market">Explore market →</button></div><button class="nav-link" data-page="settings"><span>⚙</span> Settings</button></div>
+      <div class="side-foot">BLANKET WORLD · BETA</div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><button class="mobile-menu" id="mobileMenu">☰</button><div class="crumb">Blanket <span>/</span> <b id="crumbName">Home</b></div><div class="top-actions"><div class="coin-pill">🪙 <strong id="coinCount">250</strong></div><button class="icon-btn" title="Notifications">♧<i></i></button><button class="avatar small-avatar" data-page="settings">🧸</button></div></header>
+      <section class="page active" id="page-home">
+        <div class="hero"><div class="hero-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> YOUR COZY CORNER</div><h1>Ready to get<br><span>comfy?</span></h1><p>Jump into a quiz, earn coins, and collect adorable Blankies along the way.</p><div class="hero-buttons"><button class="btn primary" data-page="discover">Explore games <span>→</span></button><button class="btn glass" data-page="collection">My collection</button></div><div class="hero-foot"><span>✦ 6 game modes</span><span>✦ 24+ Blankies to find</span></div></div><div class="hero-art"><div class="orb orb1"></div><div class="orb orb2"></div><div class="hero-blankie">🧸</div><div class="floating-card card-top">✨ <b>New Blankie!</b></div><div class="floating-card card-bottom"><span class="tiny-blankie">🐸</span><span><b>Froggy</b><small>Common · #008</small></span><span class="plus">+</span></div><div class="hero-star star-a">✦</div><div class="hero-star star-b">✧</div></div></div>
+        <div class="section-heading"><div><p class="eyebrow">PICK YOUR VIBE</p><h2>Jump back in</h2></div><button class="text-btn" data-page="modes">All modes →</button></div>
+        <div class="mode-grid">
+          <button class="mode-card mode-purple" data-mode="classic"><span class="mode-icon">🧠</span><span class="mode-tag">QUICK QUIZ</span><strong>Classic Quiz</strong><small>Answer questions and stack up coins.</small><span class="mode-arrow">↗</span></button>
+          <button class="mode-card mode-gold" data-mode="gold"><span class="mode-icon">💰</span><span class="mode-tag">RISK & REWARD</span><strong>Gold Quest</strong><small>Choose a chest and test your luck.</small><span class="mode-arrow">↗</span></button>
+          <button class="mode-card mode-green" data-mode="cafe"><span class="mode-icon">☕</span><span class="mode-tag">COZY CHALLENGE</span><strong>Cozy Café</strong><small>Serve up a perfect quiz streak.</small><span class="mode-arrow">↗</span></button>
+        </div>
+        <div class="section-heading lower"><div><p class="eyebrow">THE COLLECTION</p><h2>Blankies to discover</h2></div><button class="text-btn" data-page="market">Open market →</button></div>
+        <div class="blankie-strip" id="homeBlankies"></div>
+      </section>
+      <section class="page" id="page-discover">
+        <div class="page-title"><div><p class="eyebrow">FIND YOUR NEXT FAVORITE</p><h1>Discover games</h1><p>Pick a pack and play a round. Every correct answer gets you closer to a new Blankie.</p></div><div class="title-sticker">🎮</div></div>
+        <div class="filter-row"><button class="filter active" data-filter="all">All packs</button><button class="filter" data-filter="school">School</button><button class="filter" data-filter="fun">Just for fun</button><button class="filter" data-filter="nature">Nature</button><button class="filter" data-filter="custom">My quizzes</button></div>
+        <div class="pack-grid" id="packGrid"></div>
+        <div class="custom-panel"><div><p class="eyebrow">MAKE IT YOURS</p><h2>Create a quiz pack</h2><p>Add your own questions and use them in Classic Quiz.</p></div><button class="btn primary" id="openCreator">＋ Create pack</button></div>
+      </section>
+      <section class="page" id="page-modes">
+        <div class="page-title"><div><p class="eyebrow">SIX WAYS TO PLAY</p><h1>Game modes</h1><p>Different challenges, same cozy energy.</p></div><div class="title-sticker">🕹️</div></div>
+        <div class="all-modes-grid">
+          <button class="mode-wide mode-purple" data-mode="classic"><span>🧠</span><div><strong>Classic Quiz</strong><p>Answer multiple-choice questions and earn coins.</p><small>BEST FOR LEARNING</small></div><b>→</b></button>
+          <button class="mode-wide mode-gold" data-mode="gold"><span>💰</span><div><strong>Gold Quest</strong><p>Answer, then pick a chest. What will you win?</p><small>LUCK & STRATEGY</small></div><b>→</b></button>
+          <button class="mode-wide mode-green" data-mode="cafe"><span>☕</span><div><strong>Cozy Café</strong><p>Keep your streak going to fill your tip jar.</p><small>STREAK CHALLENGE</small></div><b>→</b></button>
+          <button class="mode-wide mode-blue" data-mode="rally"><span>🏁</span><div><strong>Blanket Rally</strong><p>Correct answers move your cozy racer forward.</p><small>RACE TO THE FINISH</small></div><b>→</b></button>
+          <button class="mode-wide mode-pink" data-mode="factory"><span>🏭</span><div><strong>Blanket Factory</strong><p>Build your production line with every answer.</p><small>BUILD & GROW</small></div><b>→</b></button>
+          <button class="mode-wide mode-dark" data-mode="code"><span>🔐</span><div><strong>Code Crack</strong><p>Solve questions to crack a secret combination.</p><small>PUZZLE MODE</small></div><b>→</b></button>
+        </div>
+      </section>
+      <section class="page" id="page-market">
+        <div class="page-title"><div><p class="eyebrow">SPEND YOUR COINS</p><h1>Blankie market</h1><p>Every Blankie has its own style. Collect the whole cozy crew.</p></div><div class="title-sticker">🛍️</div></div>
+        <div class="market-banner"><div><span class="eyebrow">WEEKLY SPOTLIGHT</span><h2>Little things. Big cozy.</h2><p>Pick up a new friend for your collection.</p></div><span class="market-giant">🦊</span></div>
+        <div class="section-heading"><div><p class="eyebrow">AVAILABLE NOW</p><h2>Meet the Blankies</h2></div><span class="subtle">Tap a card to collect</span></div><div class="market-grid" id="marketGrid"></div>
+      </section>
+      <section class="page" id="page-collection">
+        <div class="page-title"><div><p class="eyebrow">YOUR LITTLE CREW</p><h1>My Blankies</h1><p>Every friend you collect lives here.</p></div><div class="title-sticker">🧸</div></div>
+        <div class="collection-summary"><div><span>COLLECTED</span><strong id="collectedCount">1 / 12</strong></div><div class="progress"><span id="collectionProgress"></span></div><div class="equipped"><span>YOUR BUDDY</span><strong id="equippedName">Teddy</strong><span id="equippedEmoji">🧸</span></div></div>
+        <div class="market-grid" id="collectionGrid"></div>
+      </section>
+      <section class="page" id="page-stats">
+        <div class="page-title"><div><p class="eyebrow">YOUR JOURNEY</p><h1>Player stats</h1><p>Look how far you have come.</p></div><div class="title-sticker">📈</div></div>
+        <div class="stats-grid"><div class="stat-card"><span>🪙 TOTAL COINS</span><strong id="statCoins">250</strong><small>Ready to spend</small></div><div class="stat-card"><span>🎯 QUESTIONS ANSWERED</span><strong id="statQuestions">0</strong><small>Keep learning</small></div><div class="stat-card"><span>🔥 BEST STREAK</span><strong id="statStreak">0</strong><small>In one session</small></div><div class="stat-card"><span>🧸 BLANKIES FOUND</span><strong id="statBlankies">1</strong><small>Out of 12</small></div></div>
+        <div class="custom-panel"><div><p class="eyebrow">FRESH START</p><h2>Want to start over?</h2><p>Your progress is saved in this browser.</p></div><button class="btn secondary" id="resetStats">Reset progress</button></div>
+      </section>
+      <section class="page" id="page-settings">
+        <div class="page-title"><div><p class="eyebrow">MAKE IT YOURS</p><h1>Settings</h1><p>Manage your local Blanket experience.</p></div><div class="title-sticker">⚙️</div></div>
+        <div class="settings-panel"><h2>Player profile</h2><label class="field-label">Display name<input id="playerName" value="Cozy Player" maxlength="24"></label><button class="btn primary" id="saveName">Save profile</button><hr><h2>Game preferences</h2><label class="setting-line"><span><strong>Sound effects</strong><small>Little feedback sounds while playing</small></span><input type="checkbox" id="soundSetting" checked></label><label class="setting-line"><span><strong>Reduced motion</strong><small>Keep animations more subtle</small></span><input type="checkbox" id="motionSetting"></label><hr><div class="admin-row"><div><h2>Local admin panel</h2><p>For testing your own Blanket site only.</p></div><button class="btn secondary" id="adminOpen">Open admin</button></div></div>
+      </section>
+      <footer class="footer">Made for cozy quiz time <span>✦</span> Blanket is an original fan-made demo concept.</footer>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="modalBackdrop"><div class="modal" id="modal"><button class="close-modal" id="closeModal">×</button><div id="modalContent"></div></div></div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
